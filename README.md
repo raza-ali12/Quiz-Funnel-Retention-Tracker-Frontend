@@ -68,20 +68,6 @@ The dashboard shows you everything you need to know:
 - **Auto-refresh** - Updates every 3 seconds
 - **Charts** - Retention funnel and drop-off analysis
 
-## File Structure
-
-```
-quiz-tracker-frontend/
-├── quiz-tracker.js      # Main tracking script
-├── quiz-demo.html       # Demo quiz page
-├── quiz-demo.css        # Demo styles
-├── quiz-demo.js         # Demo logic
-├── dashboard.html       # Analytics dashboard
-├── dashboard.css        # Dashboard styles
-├── dashboard.js         # Dashboard logic
-└── README.md           # This file
-```
-
 ## Configuration
 
 ### Basic Setup
@@ -134,7 +120,7 @@ Works in all modern browsers:
 **Dashboard not loading data**
 - Ensure Laravel backend is running
 - Check the API URL in the dashboard
-- Look for CORS errors in browser console
+- Look for CORS errors in the browser console
 
 **No active users showing**
 - Active users are those who visited slides in the last 5 minutes
