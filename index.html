@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebroo Lead2 Quiz Analytics Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>🎯 Nebroo Lead2 Quiz Analytics</h1>
+                <div class="header-controls">
+                    <div class="quiz-selector">
+                        <label for="quizId">Quiz ID:</label>
+                        <input type="text" id="quizId" value="lead2" placeholder="Enter quiz ID">
+                    </div>
+                    <button id="refreshBtn" class="btn btn-primary">🔄 Refresh</button>
+                    <button id="exportBtn" class="btn btn-secondary">📊 Export</button>
+                </div>
+            </div>
+        </header>
+
+        <div id="loadingIndicator" class="loading-indicator hidden">
+            <div class="spinner"></div>
+            <p>Loading analytics data...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden">
+            <p id="errorText"></p>
+        </div>
+
+        <main class="dashboard-content">
+            <section class="overview-section">
+                <h2>📊 Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <h3>Total Users</h3>
+                            <p id="totalUsers">-</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>Completed</h3>
+                            <p id="completedUsers">-</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <h3>Completion Rate</h3>
+                            <p id="completionRate">-</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="funnel-results-section">
+                <h2>📊 Funnel Results</h2>
+                <div class="funnel-results">
+                    <div class="funnel-summary">
+                    </div>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <h2>🔄 Retention Funnel Chart</h2>
+                <div class="chart-container">
+                    <canvas id="funnelChart"></canvas>
+                </div>
+            </section>
+
+            <section class="analysis-section">
+                <h2>📉 Drop-off Analysis</h2>
+                <div class="table-container">
+                    <table id="dropoffTable" class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Slide</th>
+                                <th>Title</th>
+                                <th>Users Reached</th>
+                                <th>Drop-off</th>
+                                <th>Drop-off %</th>
+                                <th>Retention %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dropoffTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="answers-section">
+                <h2>💭 Answer Analytics</h2>
+                <div id="answerAnalytics" class="answers-grid">
+                </div>
+            </section>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>Last updated: <span id="lastUpdated">-</span></p>
+            <p>Quiz Funnel Retention Tracker | Built for Nebroo</p>
+        </footer>
+    </div>
+
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Slide Details</h3>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
